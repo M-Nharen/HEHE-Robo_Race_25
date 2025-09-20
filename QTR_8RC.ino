@@ -1,5 +1,6 @@
 /*
 The given sensor is a  QRT 8RC reflectance sensor array
+Source: https://www.pololu.com/docs/0J19/all
 */
 
 #include <QTRSensors.h>
