@@ -1,84 +1,46 @@
-const int rightForward = 2;
-const int rightBackward = 3;
-const int leftForward = 4;
-const int leftBackward = 5;
+const char ENA = 5;
+const char input1 = 4;
+const char input2 = 3;
+const char ENB = 10;
+const char input3 = 9;
+const char input4 = 8;
 
-void setup() {
-pinMode(rightForward , OUTPUT);
-pinMode(rightBackward , OUTPUT);
-pinMode(leftForward , OUTPUT);
-pinMode(leftBackward , OUTPUT);
+void setup() 
+{
+  pinMode(ENA, OUTPUT);
+  pinMode(ENB, OUTPUT);
+  pinMode(input1, OUTPUT);
+  pinMode(input2, OUTPUT);
+  pinMode(input3, OUTPUT);
+  pinMode(input4, OUTPUT);
 }
 
+void loop() 
+{
+  digitalWrite(input1, HIGH);
+  digitalWrite(input2, LOW);
+  analogWrite(ENA, 255);
 
-void loop() {
-//forward*forward
-digitalWrite(rightForward , HIGH);
-digitalWrite(rightBackward , LOW);
-digitalWrite(leftForward , HIGH);
-digitalWrite(leftBackward , LOW);
+  digitalWrite(input3, HIGH);
+  digitalWrite(input4, LOW);
+  analogWrite(ENB, 255);
 
-delay(2000);
+  delay(10000); 
 
-//forward*stationary
-digitalWrite(rightForward , HIGH);
-digitalWrite(rightBackward , LOW);
-digitalWrite(leftForward , LOW);
-digitalWrite(leftBackward , LOW);
+  digitalWrite(input1, LOW);
+  digitalWrite(input2, LOW);
+  digitalWrite(input3, LOW);
+  digitalWrite(input4, LOW);
 
-delay(2000);
+  delay(10000); 
 
-//forward*backward
-digitalWrite(rightForward , HIGH);
-digitalWrite(rightBackward , LOW);
-digitalWrite(leftForward , LOW);
-digitalWrite(leftBackward , HIGH);
+  digitalWrite(input1, LOW);
+  digitalWrite(input2, HIGH);
+  analogWrite(ENA, 255);
 
-delay(2000);
+  digitalWrite(input3, LOW);
+  digitalWrite(input4, HIGH);
+  analogWrite(ENB, 255);
 
-//stationary*Forward
-digitalWrite(rightForward , LOW);
-digitalWrite(rightBackward , LOW);
-digitalWrite(leftForward , HIGH);
-digitalWrite(leftBackward , LOW);
-
-delay(2000);
-
-//stationary*stationary
-digitalWrite(rightForward , LOW);
-digitalWrite(rightBackward , LOW);
-digitalWrite(leftForward , LOW);
-digitalWrite(leftBackward , LOW);
-
-delay(2000);
-
-//stationary*backward
-digitalWrite(rightForward , LOW);
-digitalWrite(rightBackward , LOW);
-digitalWrite(leftForward , LOW);
-digitalWrite(leftBackward , HIGH);
-
-delay(2000);
-
-//backward*forward
-digitalWrite(rightForward , LOW);
-digitalWrite(rightBackward , HIGH);
-digitalWrite(leftForward , HIGH);
-digitalWrite(leftBackward , LOW);
-
-delay(2000);
-
-//backward*stationary
-digitalWrite(rightForward , LOW);
-digitalWrite(rightBackward , HIGH);
-digitalWrite(leftForward , LOW);
-digitalWrite(leftBackward , LOW);
-
-delay(2000);
-
-//backward*backward
-digitalWrite(rightForward , LOW);
-digitalWrite(rightBackward , HIGH);
-digitalWrite(leftForward , LOW);
-digitalWrite(leftBackward , HIGH);
+  delay(10000);
 }
